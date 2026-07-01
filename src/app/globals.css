@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+/* ───── Custom Theme ───── */
+@theme {
+  --color-background: #050816;
+  --color-secondary: #0F172A;
+  --color-accent: #38BDF8;
+  --color-muted: #94A3B8;
+
+  --font-inter: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-outfit: "Outfit", ui-sans-serif, system-ui, sans-serif;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-glow: glow 2s ease-in-out infinite alternate;
+  --animate-spin-slow: spin 20s linear infinite;
+}
+
+/* ───── Smooth Scroll ───── */
+html {
+  scroll-behavior: smooth;
+  background-color: #050816;
+}
+
+body {
+  font-family: var(--font-inter);
+  background-color: #050816;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* ───── Custom Scrollbar ───── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050816;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 189, 248, 0.5);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(56, 189, 248, 0.3) #050816;
+}
+
+/* ───── Keyframes ───── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 10px rgba(56, 189, 248, 0.2); }
+  to { box-shadow: 0 0 30px rgba(56, 189, 248, 0.4); }
+}
+
+/* ───── Hero Portrait Aura Pulse ───── */
+@keyframes aura-pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
+/* ───── Floating Skill Icons ───── */
+@keyframes icon-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-14px); }
+}
+
+/* ───── Particle Drift ───── */
+@keyframes particle-drift {
+  0%, 100% {
+    transform: translate(0, 0);
+    opacity: var(--p-op, 0.3);
+  }
+  50% {
+    transform: translate(var(--drift-x, 10px), var(--drift-y, -15px));
+    opacity: calc(var(--p-op, 0.3) + 0.25);
+  }
+}
+
+/* ───── Light Beam Sweep ───── */
+@keyframes light-sweep {
+  0%, 100% { opacity: 0; }
+  50%      { opacity: 1; }
+}
+
+/* ───── Holographic Scan Line ───── */
+@keyframes holo-scan {
+  0%   { transform: translateY(0); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateY(min(440px, 52vh)); opacity: 0; }
+}
+
+/* ───── Selection ───── */
+::selection {
+  background-color: rgba(56, 189, 248, 0.3);
+  color: #ffffff;
+}
